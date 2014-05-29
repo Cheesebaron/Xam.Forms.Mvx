@@ -19,7 +19,7 @@ namespace CoolBeans.Pages
             {
                 Spacing = 10,
                 Orientation = StackOrientation.Horizontal,
-                VerticalOptions = LayoutOptions.CenterAndExpand
+                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
             _searchLayout.Children.Add(_searchEntry = new Entry { Placeholder = "Movie Name" });
@@ -30,7 +30,6 @@ namespace CoolBeans.Pages
                 Padding = new Thickness(10),
                 Spacing = 10,
                 Orientation = StackOrientation.Vertical,
-                VerticalOptions = LayoutOptions.Center
             };
 
             _mainLayout.Children.Add(_searchLayout);
@@ -46,6 +45,9 @@ namespace CoolBeans.Pages
             _goButton.SetBinding(Button.CommandProperty, new Binding("GetMoviesCommand"));
             _movieListView.SetBinding(ListView.ItemsSourceProperty, new Binding("Movies"));
             _movieListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedMovie"));
+            _movieListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("title"));
+            _movieListView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, new Binding("posters.thumbnail"));
+            _movieListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("ratings.critics_rating"));
         }
     }
 }
