@@ -13,7 +13,6 @@ namespace CoolBeans.Droid.MvxDroidAdaptation
         , IMvxPageNavigationProvider
     {
         private NavigationPage _navPage;
-        private bool _started;
 
         protected override void OnCreate(Bundle bundle)
         {

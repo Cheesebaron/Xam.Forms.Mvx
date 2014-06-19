@@ -5,49 +5,66 @@ namespace CoolBeans.Pages
     public class MainPage 
         : ContentPage
     {
-        private StackLayout _mainLayout;
-        private StackLayout _searchLayout;
-        private ListView _movieListView;
-        private Entry _searchEntry;
-        private Button _goButton;
-
         public MainPage()
         {
-            Title = "Rotten Tomatoes Sample";
+            Button goButton;
+            Entry searchEntry;
+            StackLayout mainLayout;
+            Title = "Movies Sample";
 
-            _searchLayout = new StackLayout
+            Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+
+            var searchLayout = new StackLayout
             {
                 Spacing = 10,
                 Orientation = StackOrientation.Horizontal,
-                HorizontalOptions = LayoutOptions.CenterAndExpand
             };
 
-            _searchLayout.Children.Add(_searchEntry = new Entry { Placeholder = "Movie Name" });
-            _searchLayout.Children.Add(_goButton = new Button { Text = "Search", IsEnabled = true });
+            searchLayout.Children.Add(searchEntry = new Entry
+            {
+                Placeholder = "Movie Name",
+                HorizontalOptions = LayoutOptions.FillAndExpand
+            });
+            searchLayout.Children.Add(goButton = new Button
+            {
+                Text = "Search", IsEnabled = true,
+                HorizontalOptions = LayoutOptions.End
+            });
 
-            Content = _mainLayout = new StackLayout
+            Content = mainLayout = new StackLayout
             {
                 Padding = new Thickness(10),
                 Spacing = 10,
                 Orientation = StackOrientation.Vertical,
             };
 
-            _mainLayout.Children.Add(_searchLayout);
+            mainLayout.Children.Add(searchLayout);
 
-            _movieListView = new ListView
+            var movieListView = new ListView
             {
                 ItemTemplate = new DataTemplate(typeof(ImageCell))
             };
 
-            _mainLayout.Children.Add(_movieListView);
+            mainLayout.Children.Add(movieListView);
 
-            _searchEntry.SetBinding(Entry.TextProperty, new Binding("SearchString"));
-            _goButton.SetBinding(Button.CommandProperty, new Binding("GetMoviesCommand"));
-            _movieListView.SetBinding(ListView.ItemsSourceProperty, new Binding("Movies"));
-            _movieListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedMovie"));
-            _movieListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("title"));
-            _movieListView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, new Binding("posters.thumbnail"));
-            _movieListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("ratings.critics_rating"));
+            searchEntry.SetBinding(Entry.TextProperty, new Binding("SearchString"));
+            goButton.SetBinding(Button.CommandProperty, new Binding("GetMoviesCommand"));
+            movieListView.SetBinding(ListView.ItemsSourceProperty, new Binding("Movies"));
+            movieListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedMovie"));
+            movieListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("Title"));
+            movieListView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, new Binding("PosterUrl"));
+            movieListView.ItemTemplate.SetBinding(ImageCell.DetailProperty, new Binding("Score"));
+        }
+
+        protected override void OnBindingContextChanged()
+        {
+            base.OnBindingContextChanged();
+
+            // Fixed in next version of Xamarin.Forms. BindingContext is not properly set on ToolbarItem.
+            var aboutItem = new ToolbarItem { Name = "About", BindingContext = BindingContext };
+            aboutItem.SetBinding(ToolbarItem.CommandProperty, new Binding("ShowAboutPageCommand"));
+
+            ToolbarItems.Add(aboutItem);
         }
     }
 }

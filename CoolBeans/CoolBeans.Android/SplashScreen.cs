@@ -5,7 +5,7 @@ using CoolBeans.Droid.MvxDroidAdaptation;
 namespace CoolBeans.Droid
 {
     [Activity(
-		Label = "CoolBeans.Droid"
+		Label = "Movies Xamarin.Forms"
 		, MainLauncher = true
 		, Icon = "@drawable/icon"
 		, Theme = "@style/Theme.Splash"

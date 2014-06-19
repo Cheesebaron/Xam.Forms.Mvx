@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
+using CoolBeans.Models;
 using CoolBeans.Services;
 
 namespace CoolBeans.ViewModels
@@ -49,7 +50,7 @@ namespace CoolBeans.ViewModels
                 _selectedMovie = value;
                 RaisePropertyChanged(() => SelectedMovie);
 
-                ShowMovieCommand.Execute(null);
+                ShowSelectedMovieCommand.Execute(null);
             }
         }
 
@@ -59,17 +60,25 @@ namespace CoolBeans.ViewModels
             {
                 return new MvxCommand(async () =>
                 {
-                    Movies = await _service.GetMovieList(SearchString);
+                    Movies = await _service.SearchMovie(SearchString);
                 });
             }
         }
 
-        public ICommand ShowMovieCommand
+        public ICommand ShowSelectedMovieCommand
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<DetailedMovieViewModel>(new {movieId = SelectedMovie.id}),
+                return new MvxCommand(() => ShowViewModel<DetailedMovieViewModel>(new {movieId = SelectedMovie.Id}),
                     () => SelectedMovie != null);
+            }
+        }
+
+        public ICommand ShowAboutPageCommand
+        {
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<AboutViewModel>());
             }
         }
     }
