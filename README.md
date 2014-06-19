@@ -7,7 +7,7 @@ This demo uses TMDB to get a list of movies the user searches for, each movie ca
 
 It uses ListView, Image, Label, Button and other controls from Xamarin.Forms, and these are bound to ViewModels created with MvvmCross.
 
-It also provides an MvvmCross implementation for the Android platform, to use Xamarin.Forms with it, this includes a custom Presenter and Activities. This code is based on the [Mvx-Books code](https://github.com/xamarin/quickui-beta/tree/master/Mvx-Books) (private repo, thanks [Stuart](https://github.com/slodge!).
+It also provides an MvvmCross implementation for the Android and iOS platform, to use Xamarin.Forms with it, this includes  custom Presenters and Activities. This code is based on the [Mvx-Books code](https://github.com/xamarin/quickui-beta/tree/master/Mvx-Books) (private repo, thanks [Stuart](https://github.com/slodge!).
 
 Screenshots
 ===========
