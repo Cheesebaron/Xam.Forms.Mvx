@@ -7,7 +7,7 @@ using ModernHttpClient;
 
 namespace CoolBeans.Services
 {
-    public class RottenTomatoesService : IRottenTomatoesService
+    public class RottenTomatoesMovieService : IMovieService
     {
         public async Task<List<Movie>> GetMovieList(string searchTerm)
         {

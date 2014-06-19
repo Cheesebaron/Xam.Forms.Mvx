@@ -24,9 +24,9 @@ namespace CoolBeans.ViewModels
             RaiseAllPropertiesChanged();
         }
 
-        private readonly IRottenTomatoesService _service;
+        private readonly IMovieService _service;
 
-        public DetailedMovieViewModel(IRottenTomatoesService service)
+        public DetailedMovieViewModel(IMovieService service)
         {
             _service = service;
         }

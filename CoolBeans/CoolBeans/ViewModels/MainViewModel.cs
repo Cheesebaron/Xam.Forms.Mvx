@@ -8,9 +8,9 @@ namespace CoolBeans.ViewModels
     public class MainViewModel 
         : MvxViewModel
     {
-        private readonly IRottenTomatoesService _service;
+        private readonly IMovieService _service;
 
-        public MainViewModel(IRottenTomatoesService service)
+        public MainViewModel(IMovieService service)
         {
             _service = service;
         }

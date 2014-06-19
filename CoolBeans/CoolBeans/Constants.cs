@@ -9,5 +9,9 @@
 
         public const string RottenTomatoMovieUrl =
             "http://api.rottentomatoes.com/api/public/v1.0/movies/{1}.json?apikey={0}";
+
+        public const string TmdbApiKey = "c0d0458190688fc0796d41acf1cef8ec";
+
+        public const string TmdbMovieSearchUrl = "http://api.themoviedb.org/3/search/multi?api_key={0}&query={1}";
     }
 }
