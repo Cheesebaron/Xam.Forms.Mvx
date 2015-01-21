@@ -42,7 +42,6 @@ namespace CoolBeans.WinPhone
             {
                 Forms.Init();
                 NavigationPage = new NavigationPage(page);
-                //_window.RootViewController = _navigationPage.CreateViewController();
                 _rootFrame.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
             }
             else
