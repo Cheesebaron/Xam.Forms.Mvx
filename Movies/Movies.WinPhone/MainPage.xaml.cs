@@ -19,8 +19,9 @@ namespace CoolBeans.WinPhone
         {
             InitializeComponent();
 
-            Forms.Init();
-            Content = CoolBeans.App.GetMainPage().ConvertPageToUIElement(this);
+            // TODO: Refactor: I don't like so much having this static field...
+            var navigationPage = MvxFormsPhoneViewPresenter.NavigationPage;
+            Content = navigationPage.ConvertPageToUIElement(this);
         }
     }
 }
