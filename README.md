@@ -7,7 +7,7 @@ This demo uses TMDB to get a list of movies the user searches for, each movie ca
 
 It uses ListView, Image, Label, Button and other controls from Xamarin.Forms, and these are bound to ViewModels created with MvvmCross.
 
-It also provides an MvvmCross implementation for the Android and iOS platform, to use Xamarin.Forms with it, this includes  custom Presenters and Activities. This code is based on the [Mvx-Books code](https://github.com/xamarin/quickui-beta/tree/master/Mvx-Books) (private repo, thanks [Stuart](https://github.com/slodge)!
+It also provides an MvvmCross implementation for the Android, iOS and Windows Phone platforms, to use Xamarin.Forms with it, this includes  custom Presenters and Activities. This code is based on the [Mvx-Books code](https://github.com/xamarin/quickui-beta/tree/master/Mvx-Books) (private repo, thanks [Stuart](https://github.com/slodge)!
 
 Screenshots
 ===========
@@ -16,3 +16,5 @@ Screenshots
 ![02 droid](https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/02d.detail.png)
 ![01 ios](https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/01i.main.png)
 ![02 ios](https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/02i.detail.png)
+![01 wp](https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/01w.main.png)
+![02 wp](https://raw.githubusercontent.com/Cheesebaron/Xam.Forms.Mvx/master/Screenshots/02w.detail.png)
