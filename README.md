@@ -1,6 +1,10 @@
 Xamarin.Forms + MvvmCross
 =============
 
+> The code in this project is obsolete!
+>
+> Look in [MvxPlugins](https://github.com/Cheesebaron/Cheesebaron.MvxPlugins/tree/master/FormsPresenters) for the latest Xamarin.Forms presenters and samples.
+
 Just a demo showing Xamarin.Forms working with MvvmCross.
 
 This demo uses TMDB to get a list of movies the user searches for, each movie can be shown with details.
