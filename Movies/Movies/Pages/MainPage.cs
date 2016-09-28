@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace CoolBeans.Pages
 {
@@ -49,7 +50,7 @@ namespace CoolBeans.Pages
 
             searchEntry.SetBinding(Entry.TextProperty, new Binding("SearchString"));
             goButton.SetBinding(Button.CommandProperty, new Binding("GetMoviesCommand"));
-            movieListView.SetBinding(ListView.ItemsSourceProperty, new Binding("Movies"));
+            movieListView.SetBinding(ListView.ItemsSourceProperty, new Binding("Movies", BindingMode.TwoWay));
             movieListView.SetBinding(ListView.SelectedItemProperty, new Binding("SelectedMovie"));
             movieListView.ItemTemplate.SetBinding(ImageCell.TextProperty, new Binding("Title"));
             movieListView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, new Binding("PosterUrl"));
